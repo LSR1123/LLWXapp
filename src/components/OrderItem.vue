@@ -1,22 +1,24 @@
 <template>
   <div class="order_item">
     <van-row class="header"> 
-      <van-col span="12">工单编号: {{data.id}}</van-col>
+      <van-col span="12">订单编号: {{data.id}}</van-col>
       <van-col span="12" class="status">{{data.status}}</van-col>
     </van-row>
     <van-row>
       <van-col :span="24" :offset="1">
-        <div v-if="data.waiter = null">员工姓名:
-          {{data.waiter.realname}}
-       </div>
-       <div v-if="data.waiter = null">员工联系方式:
-          {{data.waiter.telephone}}
+        <div v-if="data.waiter!=null">
+          员工姓名：
+          {{data.waiter.realname}} 
         </div>
-        <div>总价  {{data.total}} </div>
+        <div v-if="data.waiter!=null">
+          员工联系方式：
+          {{data.waiter.telephone}} 
+        </div>
+        <div>总价：{{data.total}}</div>
         <div>服务时间：{{data.orderTime | datefmt}}</div>
-        <div>服务地点：{{data.address.province}}
+        <div>服务地点：
+          {{data.address.province}} 
           {{data.address.city}}
-          {{data.address.privace}}
           {{data.address.area}}
           {{data.address.address}}
         </div>
